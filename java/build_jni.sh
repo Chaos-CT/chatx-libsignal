@@ -5,8 +5,9 @@
 # SPDX-License-Identifier: AGPL-3.0-only
 #
 
-set -euo pipefail
+export PATH="$HOME/.cargo/bin/:$PATH"
 
+set -euo pipefail
 SCRIPT_DIR=$(dirname "$0")
 cd "${SCRIPT_DIR}"/..
 . bin/build_helpers.sh
