@@ -454,16 +454,16 @@ mod test {
     };
     use crate::{HttpRequestDecoratorSeq, RouteType, TransportConnectionParams};
 
-    const ROUTE_THAT_TIMES_OUT: &str = "timeout.signal.org";
+    const ROUTE_THAT_TIMES_OUT: &str = "timeout.lavendarsolution.org";
 
-    const ROUTE_1: &str = "route1.signal.org";
+    const ROUTE_1: &str = "route1.lavendarsolution.org";
 
-    const ROUTE_2: &str = "route2.signal.org";
+    const ROUTE_2: &str = "route2.lavendarsolution.org";
 
     #[tokio::test]
     async fn single_route_successfull_attempts() {
         let manager = SingleRouteThrottlingConnectionManager::new(
-            example_connection_params("chat.staging.signal.org"),
+            example_connection_params("chat.staging.lavendarsolution.org"),
             TIMEOUT_DURATION,
             &ObservableEvent::default(),
         );
@@ -477,7 +477,7 @@ mod test {
     #[tokio::test]
     async fn single_route_alternating() {
         let manager = SingleRouteThrottlingConnectionManager::new(
-            example_connection_params("chat.staging.signal.org"),
+            example_connection_params("chat.staging.lavendarsolution.org"),
             TIMEOUT_DURATION,
             &ObservableEvent::default(),
         );
@@ -499,7 +499,7 @@ mod test {
     async fn single_route_manager_times_out_on_long_connection() {
         let time_over_timeout = TIMEOUT_DURATION * 2;
         let manager = SingleRouteThrottlingConnectionManager::new(
-            example_connection_params("chat.staging.signal.org"),
+            example_connection_params("chat.staging.lavendarsolution.org"),
             TIMEOUT_DURATION,
             &ObservableEvent::default(),
         );
@@ -535,7 +535,7 @@ mod test {
     #[tokio::test(flavor = "current_thread", start_paused = true)]
     async fn single_route_manager_handles_too_many_failed_attempts() {
         let manager = SingleRouteThrottlingConnectionManager::new(
-            example_connection_params("chat.staging.signal.org"),
+            example_connection_params("chat.staging.lavendarsolution.org"),
             TIMEOUT_DURATION,
             &ObservableEvent::default(),
         );
@@ -562,7 +562,7 @@ mod test {
     async fn single_route_manager_resets_cooldown_on_network_changed() {
         let network_changed_event = ObservableEvent::default();
         let manager = SingleRouteThrottlingConnectionManager::new(
-            example_connection_params("chat.staging.signal.org"),
+            example_connection_params("chat.staging.lavendarsolution.org"),
             TIMEOUT_DURATION,
             &network_changed_event,
         );
@@ -596,7 +596,7 @@ mod test {
     async fn single_route_manager_resets_cooldown_count_on_network_changed() {
         let network_changed_event = ObservableEvent::default();
         let manager = SingleRouteThrottlingConnectionManager::new(
-            example_connection_params("chat.staging.signal.org"),
+            example_connection_params("chat.staging.lavendarsolution.org"),
             TIMEOUT_DURATION,
             &network_changed_event,
         );

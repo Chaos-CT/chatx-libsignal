@@ -545,7 +545,7 @@ pub(crate) mod test {
 
     fn test_request() -> DnsLookupRequest {
         DnsLookupRequest {
-            hostname: Arc::from("chat.signal.org"),
+            hostname: Arc::from("chat.lavendarsolution.org"),
             ipv6_enabled: true,
         }
     }

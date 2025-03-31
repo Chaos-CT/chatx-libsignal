@@ -102,7 +102,7 @@ pub(crate) mod testutil {
     use tls_parser::{ClientHello, TlsExtension, TlsMessage, TlsMessageHandshake, TlsPlaintext};
     use tokio::io::{AsyncBufReadExt, AsyncRead, AsyncWrite, BufStream};
 
-    pub(crate) const PROXY_HOSTNAME: &str = "test-proxy.signal.org.local";
+    pub(crate) const PROXY_HOSTNAME: &str = "test-proxy.lavendarsolution.org.local";
 
     pub(crate) static PROXY_CERTIFICATE: LazyLock<CertifiedKey> = LazyLock::new(|| {
         rcgen::generate_simple_self_signed([PROXY_HOSTNAME.to_string()]).expect("can generate")

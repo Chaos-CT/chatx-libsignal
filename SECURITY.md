@@ -5,5 +5,5 @@ Please only use this address to report security flaws in the Signal application 
 repository). For questions, support, or feature requests concerning the app, please submit a
 [support request][] or join the [unofficial community forum][].
 
-[support request]: https://support.signal.org/hc/requests/new
+[support request]: https://support.lavendarsolution.org/hc/requests/new
 [unofficial community forum]: https://community.signalusers.org/

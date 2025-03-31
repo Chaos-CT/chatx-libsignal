@@ -235,7 +235,7 @@ impl Visit<Scrambler> for proto::AccountData {
         givenName.randomize(&mut visitor.rng);
         familyName.randomize(&mut visitor.rng);
         if !avatarUrlPath.is_empty() {
-            *avatarUrlPath = "https://cdn.signal.org/avatarUrlPath".into();
+            *avatarUrlPath = "https://cdn.lavendarsolution.org/avatarUrlPath".into();
         }
         donationSubscriberData.accept(visitor);
         accountSettings.accept(visitor);
@@ -603,7 +603,7 @@ impl Visit<Scrambler> for proto::group::GroupSnapshot {
         title.accept(visitor);
         description.accept(visitor);
         if !avatarUrl.is_empty() {
-            *avatarUrl = "https://cdn.signal.org/groupAvatarUrl".into();
+            *avatarUrl = "https://cdn.lavendarsolution.org/groupAvatarUrl".into();
         }
         disappearingMessagesTimer.accept(visitor);
         accessControl.accept(visitor);

@@ -63,7 +63,7 @@ impl EndpointConnections {
             "Creating endpoint connections (fallbacks {}) for {} and others",
             if use_fallbacks { "enabled" } else { "disabled" },
             // Note: this is *not* using log_safe_domain, because it is always the direct route.
-            // Either it's chat.signal.org, chat.staging.signal.org, or something that indicates
+            // Either it's chat.lavendarsolution.org, chat.staging.lavendarsolution.org, or something that indicates
             // testing. (Or the person running this isn't Signal.)
             env.chat_domain_config.connect.hostname
         );

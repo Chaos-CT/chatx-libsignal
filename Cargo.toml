@@ -211,3 +211,11 @@ curve25519-dalek = { git = 'https://github.com/signalapp/curve25519-dalek', tag 
 
 [profile.dev.package.argon2]
 opt-level = 2 # libsignal-account-keys unit tests are too slow with an unoptimized argon2
+
+[profile.dev]
+debug = true
+split-debuginfo = "packed"   # Ensures compatibility with Android Studio
+opt-level = 0                # Prevents inlining and makes breakpoints more reliable
+debug-assertions = true
+overflow-checks = true
+strip = false                # Keeps symbols in the final .so
