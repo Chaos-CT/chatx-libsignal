@@ -650,7 +650,7 @@ pub(crate) mod test {
             }),
         );
 
-        const CHAT_DOMAIN: &str = "test.signal.org";
+        const CHAT_DOMAIN: &str = "test.lavendarsolution.org";
 
         let err = ChatConnection::start_connect_with_transport(
             &connect_state,
@@ -719,7 +719,7 @@ pub(crate) mod test {
             LookupResult::localhost(),
         )]));
 
-        const CHAT_DOMAIN: &str = "test.signal.org";
+        const CHAT_DOMAIN: &str = "test.lavendarsolution.org";
         let routes = vec![HttpsTlsRoute {
             fragment: HttpRouteFragment {
                 host_header: CHAT_DOMAIN.into(),

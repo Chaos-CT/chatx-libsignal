@@ -3,7 +3,7 @@
 // SPDX-License-Identifier: AGPL-3.0-only
 //
 
-const SIGNAL_DOMAIN_SUFFIX: &str = ".signal.org";
+const SIGNAL_DOMAIN_SUFFIX: &str = ".lavendarsolution.org";
 
 pub(crate) fn log_safe_domain(domain: &str) -> &str {
     match domain {
