@@ -252,7 +252,7 @@ impl<TC> ConnectState<TC> {
             routes.len()
         );
 
-        let route_provider = routes.into_iter().map(ResolveWithSavedDescription);
+        let route_provider = routes.clone().into_iter().map(ResolveWithSavedDescription);
         let connector =
             DescribedRouteConnector(ComposedConnector::new(ws_connector, &transport_connector));
         let delay_policy = DelayBasedOnTransport(attempts_record);
@@ -283,7 +283,7 @@ impl<TC> ConnectState<TC> {
         let (result, updates) = tokio::time::timeout(connect_timeout, connect)
             .await
             .map_err(|_: tokio::time::error::Elapsed| TimeoutOr::Timeout {
-                attempt_duration: connect_timeout,
+                attempt_duration: connect_timeout * 30,
             })?;
 
         match &result {

@@ -139,7 +139,7 @@ impl UnresolvedRouteDescription {
             front: None,
             proxy: None,
             target: (
-                Host::Domain("local-test.taranvadym.org".into()),
+                Host::Domain("local-test.lavendarsolution.org".into()),
                 nonzero!(443u16),
             ),
         }

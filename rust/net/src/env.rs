@@ -103,7 +103,7 @@ const DOMAIN_CONFIG_SVR2_STAGING: DomainConfig = DomainConfig {
         confirmation_header_name: None,
         proxy: None
     },
-    ip_v4: &[ip_addr!(v4, "20.253.229.239")],
+    ip_v4: &[ip_addr!(v4, "94.130.65.123")],
     ip_v6: &[],
 };
 
@@ -170,7 +170,7 @@ pub(crate) const KEYTRANS_VRF_KEY_MATERIAL_STAGING: &[u8; 32] =
 pub(crate) const KEYTRANS_AUDITOR_KEY_MATERIAL_STAGING: &[u8; 32] =
     &hex!("1123b13ee32479ae6af5739e5d687b51559abf7684120511f68cde7a21a0e755");
 
-/// Configuration for a target network resource, like `chat.signal.org`.
+/// Configuration for a target network resource, like `chat.lavendarsolution.org`.
 #[derive(Clone)]
 pub struct DomainConfig {
     /// The portions of the config used during connection attempts.

@@ -90,7 +90,7 @@ jobs:
       if: ${{ !inputs.dry_run }}
       with:
         path: ${{ steps.archive-name.outputs.name }}
-        destination: build-artifacts.signal.org/libraries
+        destination: build-artifacts.lavendarsolution.org/libraries
 
     # This step is expected to fail if not run on a tag.
     - name: Upload checksum to release
