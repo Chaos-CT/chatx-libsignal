@@ -36,44 +36,26 @@ pub const TIMESTAMP_HEADER_NAME: &str = "x-signal-timestamp";
 pub(crate) const ALERT_HEADER_NAME: &str = "x-signal-alert";
 
 const DOMAIN_CONFIG_CHAT: DomainConfig = DomainConfig {
-    ip_v4: &[
-        ip_addr!(v4, "94.130.65.123"),
-        // ip_addr!(v4, "13.248.212.111"),
-    ],
-    ip_v6: &[
-        // ip_addr!(v6, "2600:9000:a507:ab6d:4ce3:2f58:25d7:9cbf"),
-        // ip_addr!(v6, "2600:9000:a61f:527c:d5eb:a431:5239:3232"),
-    ],
+    ip_v4: &[ip_addr!(v4, "94.130.65.123")],
+    ip_v6: &[ip_addr!(v6, "2a01:4f8:10b:2ed5::2")],
     connect: ConnectionConfig {
         hostname: "chat.lavendarsolution.org",
         port: DEFAULT_HTTPS_PORT,
         cert: SIGNAL_ROOT_CERTIFICATES,
         confirmation_header_name: Some(TIMESTAMP_HEADER_NAME),
-        proxy: Some(ConnectionProxyConfig {
-            path_prefix: "/service",
-            configs: [PROXY_CONFIG_F_PROD, PROXY_CONFIG_G],
-        }),
+        proxy: None
     },
 };
 
 const DOMAIN_CONFIG_CHAT_STAGING: DomainConfig = DomainConfig {
-    ip_v4: &[
-        ip_addr!(v4, "94.130.65.123"),
-        // ip_addr!(v4, "13.248.206.115"),
-    ],
-    ip_v6: &[
-        // ip_addr!(v6, "2600:9000:a507:ab6d:7b25:2580:8bd6:3b93"),
-        // ip_addr!(v6, "2600:9000:a61f:527c:2215:cd9:bac6:a2f8"),
-    ],
+    ip_v4: &[ip_addr!(v4, "94.130.65.123")],
+    ip_v6: &[ip_addr!(v6, "2a01:4f8:10b:2ed5::2")],
     connect: ConnectionConfig {
         hostname: "chat.staging.lavendarsolution.org",
         port: DEFAULT_HTTPS_PORT,
         cert: SIGNAL_ROOT_CERTIFICATES,
         confirmation_header_name: Some(TIMESTAMP_HEADER_NAME),
-        proxy: Some(ConnectionProxyConfig {
-            path_prefix: "/service-staging",
-            configs: [PROXY_CONFIG_F_STAGING, PROXY_CONFIG_G],
-        }),
+        proxy: None
     },
 };
 
@@ -83,15 +65,10 @@ const DOMAIN_CONFIG_CDSI: DomainConfig = DomainConfig {
         port: DEFAULT_HTTPS_PORT,
         cert: SIGNAL_ROOT_CERTIFICATES,
         confirmation_header_name: None,
-        proxy: Some(ConnectionProxyConfig {
-            path_prefix: "/cdsi",
-            configs: [PROXY_CONFIG_F_PROD, PROXY_CONFIG_G],
-        }),
+        proxy: None
     },
     ip_v4: &[ip_addr!(v4, "94.130.65.123")],
-    ip_v6: &[
-        // ip_addr!(v6, "2603:1030:7::1")
-    ],
+    ip_v6: &[ip_addr!(v6, "2a01:4f8:10b:2ed5::2")],
 };
 
 const DOMAIN_CONFIG_CDSI_STAGING: DomainConfig = DomainConfig {
@@ -100,15 +77,10 @@ const DOMAIN_CONFIG_CDSI_STAGING: DomainConfig = DomainConfig {
         port: DEFAULT_HTTPS_PORT,
         cert: SIGNAL_ROOT_CERTIFICATES,
         confirmation_header_name: None,
-        proxy: Some(ConnectionProxyConfig {
-            path_prefix: "/cdsi-staging",
-            configs: [PROXY_CONFIG_F_STAGING, PROXY_CONFIG_G],
-        }),
+        proxy: None
     },
     ip_v4: &[ip_addr!(v4, "94.130.65.123")],
-    ip_v6: &[
-        // ip_addr!(v6, "2603:1030:7::732")
-    ],
+    ip_v6: &[ip_addr!(v6, "2a01:4f8:10b:2ed5::2")],
 };
 
 const DOMAIN_CONFIG_SVR2: DomainConfig = DomainConfig {
@@ -117,13 +89,10 @@ const DOMAIN_CONFIG_SVR2: DomainConfig = DomainConfig {
         port: DEFAULT_HTTPS_PORT,
         cert: SIGNAL_ROOT_CERTIFICATES,
         confirmation_header_name: None,
-        proxy: Some(ConnectionProxyConfig {
-            path_prefix: "/svr2",
-            configs: [PROXY_CONFIG_F_PROD, PROXY_CONFIG_G],
-        }),
+        proxy: None
     },
     ip_v4: &[ip_addr!(v4, "94.130.65.123")],
-    ip_v6: &[],
+    ip_v6: &[ip_addr!(v6, "2a01:4f8:10b:2ed5::2")],
 };
 
 const DOMAIN_CONFIG_SVR2_STAGING: DomainConfig = DomainConfig {
@@ -132,10 +101,7 @@ const DOMAIN_CONFIG_SVR2_STAGING: DomainConfig = DomainConfig {
         port: DEFAULT_HTTPS_PORT,
         cert: SIGNAL_ROOT_CERTIFICATES,
         confirmation_header_name: None,
-        proxy: Some(ConnectionProxyConfig {
-            path_prefix: "/svr2-staging",
-            configs: [PROXY_CONFIG_F_STAGING, PROXY_CONFIG_G],
-        }),
+        proxy: None
     },
     ip_v4: &[ip_addr!(v4, "94.130.65.123")],
     ip_v6: &[],

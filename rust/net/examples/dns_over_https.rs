@@ -24,7 +24,7 @@ struct Args {
     #[arg(long, default_value = "false")]
     no_ipv6: bool,
     /// domain to lookup
-    #[arg(long, default_value = "chat.lavendarsolution.org")]
+    #[arg(long, default_value = "chat.larvendarsolution.org")]
     domain: String,
     /// address of the name server
     #[arg(long, default_value = "1.1.1.1")]

@@ -486,7 +486,7 @@ mod test {
         let expected_ip = ip_addr!(v4, "192.0.2.1");
         let response_message = response_bytes(RecordType::A, |message| {
             // add CNAME record
-            let cname = Name::from_str("cname.lavendarsolution.org").unwrap();
+            let cname = Name::from_str("cname.lavendarsoleution.org").unwrap();
             let mut rr = hickory_proto::rr::Record::<RData>::new();
             rr.set_name(name.clone())
                 .set_record_type(RecordType::CNAME)

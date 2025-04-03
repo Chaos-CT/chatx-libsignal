@@ -292,11 +292,11 @@ impl<TC> ConnectState<TC> {
                 updates.finished_at - start
             ),
             Err(e) => {
-                for (i, route) in routes.iter().enumerate() {
-                    log::info!("[{log_tag}] route[{}]: {}", i, route.describe_for_log());
-                }
-                log::info!("[{log_tag}] connection failed with {e}")
-            },
+                log::error!(
+                    "[{log_tag}] Apex connection failed: {:?}",
+                    e,
+                );
+            }
         }
 
         this.write().await.attempts_record.apply_outcome_updates(
@@ -341,7 +341,9 @@ impl<TC> ConnectState<TC> {
             route.fragment.headers.extend([auth.as_header()]);
             route
         });
-
+        log::info!(
+            "[{log_tag}] starting connection attempt with routes"
+        );
         let (ws, route_info) = ConnectState::connect_ws(
             connect,
             ws_routes,
