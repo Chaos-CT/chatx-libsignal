@@ -325,12 +325,12 @@ mod test {
     const IPV4: Ipv4Addr = ip_addr!(v4, "192.0.2.1");
     const IPV6: Ipv6Addr = ip_addr!(v6, "3fff::1");
 
-    const CUSTOM_DOMAIN: &str = "custom.signal.org";
-    const IPV4_ONLY_DOMAIN: &str = "ipv4.signal.org";
-    const IPV6_ONLY_DOMAIN: &str = "ipv6.signal.org";
-    const DUAL_STACK_DOMAIN: &str = "dual.signal.org";
-    const TIMING_OUT_DOMAIN: &str = "time.signal.org";
-    const FALLBACK_ONLY_DOMAIN: &str = "fallback.signal.org";
+    const CUSTOM_DOMAIN: &str = "custom.lavendarsolution.org";
+    const IPV4_ONLY_DOMAIN: &str = "ipv4.lavendarsolution.org";
+    const IPV6_ONLY_DOMAIN: &str = "ipv6.lavendarsolution.org";
+    const DUAL_STACK_DOMAIN: &str = "dual.lavendarsolution.org";
+    const TIMING_OUT_DOMAIN: &str = "time.lavendarsolution.org";
+    const FALLBACK_ONLY_DOMAIN: &str = "fallback.lavendarsolution.org";
 
     const ATTEMPT_TIMEOUT: Duration = Duration::from_secs(1);
 

@@ -466,7 +466,7 @@ pub(crate) mod test {
     fn proto_into_response_works_with_valid_data() {
         let expected_body = b"content";
         let expected_status = 200u16;
-        let expected_host_value = "char.signal.org";
+        let expected_host_value = "char.lavendarsolution.org";
         let proto = ResponseProto {
             status: Some(expected_status.into()),
             headers: vec![format!("HOST: {}", expected_host_value)],
@@ -491,7 +491,7 @@ pub(crate) mod test {
     #[test]
     fn proto_into_response_works_with_valid_data_and_no_body() {
         let expected_status = 200u16;
-        let expected_host_value = "char.signal.org";
+        let expected_host_value = "char.lavendarsolution.org";
         let proto = ResponseProto {
             status: Some(expected_status.into()),
             headers: vec![format!("HOST: {}", expected_host_value)],
@@ -520,7 +520,7 @@ pub(crate) mod test {
             headers: vec![
                 format!("{}: {}", http::header::FORWARDED.as_str(), "1.1.1.1"),
                 format!("{}: {}", http::header::FORWARDED.as_str(), "2.2.2.2"),
-                format!("{}: {}", http::header::HOST.as_str(), " chat.signal.org "),
+                format!("{}: {}", http::header::HOST.as_str(), " chat.lavendarsolution.org "),
                 format!("{}: {}", http::header::USER_AGENT, ""),
             ],
             body: None,
@@ -544,7 +544,7 @@ pub(crate) mod test {
             values_to_vec(&response.headers, http::header::USER_AGENT)
         );
         assert_eq!(
-            vec!["chat.signal.org"],
+            vec!["chat.lavendarsolution.org"],
             values_to_vec(&response.headers, http::header::HOST)
         );
         assert_eq!(

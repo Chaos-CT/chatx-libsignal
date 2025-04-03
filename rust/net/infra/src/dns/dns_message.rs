@@ -284,7 +284,7 @@ mod test {
     use crate::dns::dns_types::ResourceType;
 
     const REQUEST_ID: u16 = 0xABCD;
-    const VALID_DOMAIN: &str = "chat.signal.org";
+    const VALID_DOMAIN: &str = "chat.lavendarsolution.org";
 
     #[test]
     fn valid_requests_identical() {
@@ -341,7 +341,7 @@ mod test {
 
     #[test]
     fn invalid_name_empty_label() {
-        for name in ["", ".", "chat..signal.org", ".chat.signal.org"] {
+        for name in ["", ".", "chat..lavendarsolution.org", ".chat.lavendarsolution.org"] {
             assert_matches!(
                 create_request_with_id(REQUEST_ID, name, ResourceType::A),
                 Err(Error::ProtocolErrorLabelEmpty)
@@ -352,14 +352,14 @@ mod test {
     #[test]
     fn invalid_name_label_too_long() {
         let mut long_label = iter::repeat('a').take(MAX_DNS_LABEL_LEN).join("");
-        let name = format!("{}.signal.org", long_label);
+        let name = format!("{}.lavendarsolution.org", long_label);
         assert_matches!(
             create_request_with_id(REQUEST_ID, &name, ResourceType::A),
             Ok(_)
         );
 
         long_label.push('a');
-        let name = format!("{}.signal.org", long_label);
+        let name = format!("{}.lavendarsolution.org", long_label);
         assert_matches!(
             create_request_with_id(REQUEST_ID, &name, ResourceType::A),
             Err(Error::ProtocolErrorLabelTooLong)
@@ -486,7 +486,7 @@ mod test {
         let expected_ip = ip_addr!(v4, "192.0.2.1");
         let response_message = response_bytes(RecordType::A, |message| {
             // add CNAME record
-            let cname = Name::from_str("cname.signal.org").unwrap();
+            let cname = Name::from_str("cname.lavendarsoleution.org").unwrap();
             let mut rr = hickory_proto::rr::Record::<RData>::new();
             rr.set_name(name.clone())
                 .set_record_type(RecordType::CNAME)

@@ -509,7 +509,7 @@ mod test {
     }
 
     fn example_connection_params() -> ConnectionParams {
-        let host = "chat.signal.org".into();
+        let host = "chat.lavendarsolution.org".into();
         ConnectionParams {
             route_type: RouteType::Test,
             transport: TransportConnectionParams {

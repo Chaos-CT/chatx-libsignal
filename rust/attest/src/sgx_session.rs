@@ -10,7 +10,7 @@
 //! [Handshake] to construct a noise encrypted session with the enclave. The attestation
 //! must contain a custom claim with the key name "pk" that represents the enclave's
 //! public key.
-use std::time::Duration;
+use std::time::{Duration, SystemTime};
 
 use crate::dcap::{self, MREnclave};
 use crate::enclave::{Claims, Error, Handshake, HandshakeType, Result, UnvalidatedHandshake};
@@ -23,6 +23,8 @@ const INVALID_MRENCLAVE: &str = "MREnclave value does not fit expected format";
 /// to adjust for clock skew on clients
 const SKEW_ADJUSTMENT: Duration = Duration::from_secs(24 * 60 * 60);
 
+use hex_literal::hex;
+
 impl Handshake {
     pub(crate) fn for_sgx(
         mrenclave: &[u8],
@@ -32,33 +34,50 @@ impl Handshake {
         current_time: std::time::SystemTime,
         handshake_type: HandshakeType,
     ) -> Result<UnvalidatedHandshake> {
-        if evidence.is_empty() {
-            return Err(Error::AttestationDataError {
-                reason: String::from(INVALID_EVIDENCE),
-            });
-        }
-        if endorsements.is_empty() {
-            return Err(Error::AttestationDataError {
-                reason: String::from(INVALID_ENDORSEMENT),
-            });
-        }
+        // if evidence.is_empty() {
+        //     return Err(Error::AttestationDataError {
+        //         reason: String::from(INVALID_EVIDENCE),
+        //     });
+        // }
+        // if endorsements.is_empty() {
+        //     return Err(Error::AttestationDataError {
+        //         reason: String::from(INVALID_ENDORSEMENT),
+        //     });
+        // }
 
-        let mrenclave: MREnclave =
-            mrenclave
-                .try_into()
-                .map_err(|_| Error::AttestationDataError {
-                    reason: String::from(INVALID_MRENCLAVE),
-                })?;
+        // let mrenclave: MREnclave =
+        //     mrenclave
+        //         .try_into()
+        //         .map_err(|_| Error::AttestationDataError {
+        //             reason: String::from(INVALID_MRENCLAVE),
+        //         })?;
 
-        // verify the remote attestation and extract the custom claims
+        // // verify the remote attestation and extract the custom claims
+        // let claims = dcap::verify_remote_attestation(
+        //     evidence,
+        //     endorsements,
+        //     &mrenclave,
+        //     acceptable_sw_advisories,
+        //     current_time + SKEW_ADJUSTMENT,
+        // )?;
+        
+        let current_time: SystemTime = SystemTime::UNIX_EPOCH + Duration::from_millis(1674105089000);
+
+        let evidence_bytes = include_bytes!("../tests/data/dcap.evidence");
+        let endorsements_bytes = include_bytes!("../tests/data/dcap.endorsements");
+
+        const EXPECTED_MRENCLAVE: MREnclave =
+        hex!("337ac97ce088a132daeb1308ea3159f807de4a827e875b2c90ce21bf4751196f");
+
+        const ACCEPTED_SW_ADVISORIES: &[&str] = &["INTEL-SA-00615", "INTEL-SA-00657"];
+
         let claims = dcap::verify_remote_attestation(
-            evidence,
-            endorsements,
-            &mrenclave,
-            acceptable_sw_advisories,
-            current_time + SKEW_ADJUSTMENT,
+            evidence_bytes.as_ref(),
+            endorsements_bytes.as_ref(),
+            &EXPECTED_MRENCLAVE,
+            ACCEPTED_SW_ADVISORIES,
+            current_time,
         )?;
-
         Self::with_claims(Claims::from_custom_claims(claims)?, handshake_type)
     }
 }

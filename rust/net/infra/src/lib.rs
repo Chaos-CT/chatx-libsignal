@@ -656,7 +656,7 @@ pub(crate) mod test {
     #[test]
     fn connection_info_description() {
         let connection_info = ServiceConnectionInfo {
-            address: Host::Domain("test.signal.org".into()),
+            address: Host::Domain("test.lavendarsolution.org".into()),
             dns_source: DnsSource::SystemLookup,
             route_type: RouteType::Test,
         };
@@ -679,10 +679,10 @@ pub(crate) mod test {
     #[test]
     fn test_path_prefix_decorator() {
         let cases = vec![
-            ("https://chat.signal.org/", "/chat/"),
-            ("https://chat.signal.org/v1", "/chat/v1"),
-            ("https://chat.signal.org/v1?a=b", "/chat/v1"),
-            ("https://chat.signal.org/v1/endpoint", "/chat/v1/endpoint"),
+            ("https://chat.lavendarsolution.org/", "/chat/"),
+            ("https://chat.lavendarsolution.org/v1", "/chat/v1"),
+            ("https://chat.lavendarsolution.org/v1?a=b", "/chat/v1"),
+            ("https://chat.lavendarsolution.org/v1/endpoint", "/chat/v1/endpoint"),
         ];
         for (input, expected_path) in cases.into_iter() {
             let builder = Request::get(input);
@@ -695,7 +695,7 @@ pub(crate) mod test {
     #[test]
     fn test_header_auth_decorator() {
         let expected = "Basic dXNybm06cHNzd2Q=";
-        let builder = Request::get("https://chat.signal.org/");
+        let builder = Request::get("https://chat.lavendarsolution.org/");
         let builder = HttpRequestDecorator::header(
             http::header::AUTHORIZATION,
             basic_authorization("usrnm", "psswd"),

@@ -43,10 +43,7 @@ const DOMAIN_CONFIG_CHAT: DomainConfig = DomainConfig {
         port: DEFAULT_HTTPS_PORT,
         cert: SIGNAL_ROOT_CERTIFICATES,
         confirmation_header_name: Some(TIMESTAMP_HEADER_NAME),
-        proxy: Some(ConnectionProxyConfig {
-            path_prefix: "/service",
-            configs: [PROXY_CONFIG_F_PROD, PROXY_CONFIG_G],
-        }),
+        proxy: None
     },
 };
 
@@ -58,23 +55,17 @@ const DOMAIN_CONFIG_CHAT_STAGING: DomainConfig = DomainConfig {
         port: DEFAULT_HTTPS_PORT,
         cert: SIGNAL_ROOT_CERTIFICATES,
         confirmation_header_name: Some(TIMESTAMP_HEADER_NAME),
-        proxy: Some(ConnectionProxyConfig {
-            path_prefix: "/service-staging",
-            configs: [PROXY_CONFIG_F_STAGING, PROXY_CONFIG_G],
-        }),
+        proxy: None
     },
 };
 
 const DOMAIN_CONFIG_CDSI: DomainConfig = DomainConfig {
     connect: ConnectionConfig {
-        hostname: "cdsi.lavendar.org",
+        hostname: "cdsi.lavendarsolution.org",
         port: DEFAULT_HTTPS_PORT,
         cert: SIGNAL_ROOT_CERTIFICATES,
         confirmation_header_name: None,
-        proxy: Some(ConnectionProxyConfig {
-            path_prefix: "/cdsi",
-            configs: [PROXY_CONFIG_F_PROD, PROXY_CONFIG_G],
-        }),
+        proxy: None
     },
     ip_v4: &[ip_addr!(v4, "94.130.65.123")],
     ip_v6: &[ip_addr!(v6, "2a01:4f8:10b:2ed5::2")],
@@ -86,10 +77,7 @@ const DOMAIN_CONFIG_CDSI_STAGING: DomainConfig = DomainConfig {
         port: DEFAULT_HTTPS_PORT,
         cert: SIGNAL_ROOT_CERTIFICATES,
         confirmation_header_name: None,
-        proxy: Some(ConnectionProxyConfig {
-            path_prefix: "/cdsi-staging",
-            configs: [PROXY_CONFIG_F_STAGING, PROXY_CONFIG_G],
-        }),
+        proxy: None
     },
     ip_v4: &[ip_addr!(v4, "94.130.65.123")],
     ip_v6: &[ip_addr!(v6, "2a01:4f8:10b:2ed5::2")],
@@ -101,10 +89,7 @@ const DOMAIN_CONFIG_SVR2: DomainConfig = DomainConfig {
         port: DEFAULT_HTTPS_PORT,
         cert: SIGNAL_ROOT_CERTIFICATES,
         confirmation_header_name: None,
-        proxy: Some(ConnectionProxyConfig {
-            path_prefix: "/svr2",
-            configs: [PROXY_CONFIG_F_PROD, PROXY_CONFIG_G],
-        }),
+        proxy: None
     },
     ip_v4: &[ip_addr!(v4, "94.130.65.123")],
     ip_v6: &[ip_addr!(v6, "2a01:4f8:10b:2ed5::2")],
@@ -116,13 +101,10 @@ const DOMAIN_CONFIG_SVR2_STAGING: DomainConfig = DomainConfig {
         port: DEFAULT_HTTPS_PORT,
         cert: SIGNAL_ROOT_CERTIFICATES,
         confirmation_header_name: None,
-        proxy: Some(ConnectionProxyConfig {
-            path_prefix: "/svr2-staging",
-            configs: [PROXY_CONFIG_F_STAGING, PROXY_CONFIG_G],
-        }),
+        proxy: None
     },
-    ip_v4: &[ip_addr!(v4, "94.130.65.123")],
-    ip_v6: &[ip_addr!(v6, "2a01:4f8:10b:2ed5::2")],
+    ip_v4: &[ip_addr!(v4, "20.253.229.239")],
+    ip_v6: &[],
 };
 
 pub const PROXY_CONFIG_F_PROD: ProxyConfig = ProxyConfig {

@@ -394,7 +394,7 @@ pub(crate) mod testutil {
     use tokio::io::{AsyncRead, AsyncReadExt, AsyncWrite, AsyncWriteExt};
     use warp::Filter;
 
-    pub(crate) const SERVER_HOSTNAME: &str = "test-server.signal.org.local";
+    pub(crate) const SERVER_HOSTNAME: &str = "test-server.lavendarsolution.org.local";
 
     pub(crate) static SERVER_CERTIFICATE: LazyLock<CertifiedKey> = LazyLock::new(|| {
         rcgen::generate_simple_self_signed([SERVER_HOSTNAME.to_string()]).expect("can generate")
