@@ -6,7 +6,7 @@
 pub use libsignal_net_infra::certs::RootCertificates;
 
 pub const SIGNAL_ROOT_CERTIFICATES: RootCertificates =
-    RootCertificates::FromStaticDers(&[include_bytes!("../res/signal.cer")]);
+    RootCertificates::FromStaticDers(&[include_bytes!("../res/isrgrootx1.der"), include_bytes!("../res/azure-cdsi.cer"), include_bytes!("../res/signal_main.cer"), include_bytes!("../res/signal_origin.cer")]);
 
 // GIAG2 cert plus root certs from pki.goog
 pub const PROXY_G_ROOT_CERTIFICATES: RootCertificates = RootCertificates::FromStaticDers(&[
