@@ -5,7 +5,7 @@
 # SPDX-License-Identifier: AGPL-3.0-only
 #
 
-export Path="$HOME/.cargo.bin:$PATH"
+export PATH="$HOME/.cargo.bin:$PATH"
 
 set -euo pipefail
 
