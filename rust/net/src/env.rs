@@ -43,7 +43,10 @@ const DOMAIN_CONFIG_CHAT: DomainConfig = DomainConfig {
         port: DEFAULT_HTTPS_PORT,
         cert: SIGNAL_ROOT_CERTIFICATES,
         confirmation_header_name: Some(TIMESTAMP_HEADER_NAME),
-        proxy: None
+        proxy: Some(ConnectionProxyConfig {
+            path_prefix: "/service",
+            configs: [PROXY_CONFIG_F_STAGING, PROXY_CONFIG_G],
+        }),
     },
 };
 
@@ -55,7 +58,10 @@ const DOMAIN_CONFIG_CHAT_STAGING: DomainConfig = DomainConfig {
         port: DEFAULT_HTTPS_PORT,
         cert: SIGNAL_ROOT_CERTIFICATES,
         confirmation_header_name: Some(TIMESTAMP_HEADER_NAME),
-        proxy: None
+        proxy: Some(ConnectionProxyConfig {
+            path_prefix: "/service-staging",
+            configs: [PROXY_CONFIG_F_STAGING, PROXY_CONFIG_G],
+        }),
     },
 };
 
@@ -65,7 +71,10 @@ const DOMAIN_CONFIG_CDSI: DomainConfig = DomainConfig {
         port: DEFAULT_HTTPS_PORT,
         cert: SIGNAL_ROOT_CERTIFICATES,
         confirmation_header_name: None,
-        proxy: None
+        proxy: Some(ConnectionProxyConfig {
+            path_prefix: "/cdsi",
+            configs: [PROXY_CONFIG_F_STAGING, PROXY_CONFIG_G],
+        }),
     },
     ip_v4: &[ip_addr!(v4, "52.176.152.111")],
     ip_v6: &[],
@@ -77,7 +86,10 @@ const DOMAIN_CONFIG_CDSI_STAGING: DomainConfig = DomainConfig {
         port: DEFAULT_HTTPS_PORT,
         cert: SIGNAL_ROOT_CERTIFICATES,
         confirmation_header_name: None,
-        proxy: None
+        proxy: Some(ConnectionProxyConfig {
+            path_prefix: "/cdsi-staging",
+            configs: [PROXY_CONFIG_F_STAGING, PROXY_CONFIG_G],
+        }),
     },
     ip_v4: &[ip_addr!(v4, "52.176.152.111")],
     ip_v6: &[],
@@ -89,10 +101,13 @@ const DOMAIN_CONFIG_SVR2: DomainConfig = DomainConfig {
         port: DEFAULT_HTTPS_PORT,
         cert: SIGNAL_ROOT_CERTIFICATES,
         confirmation_header_name: None,
-        proxy: None
+        proxy: Some(ConnectionProxyConfig {
+            path_prefix: "/svr2",
+            configs: [PROXY_CONFIG_F_STAGING, PROXY_CONFIG_G],
+        }),
     },
-    ip_v4: &[ip_addr!(v4, "94.130.65.123")],
-    ip_v6: &[ip_addr!(v6, "2a01:4f8:10b:2ed5::2")],
+    ip_v4: &[ip_addr!(v4, "52.176.152.111")],
+    ip_v6: &[],
 };
 
 const DOMAIN_CONFIG_SVR2_STAGING: DomainConfig = DomainConfig {
@@ -101,9 +116,12 @@ const DOMAIN_CONFIG_SVR2_STAGING: DomainConfig = DomainConfig {
         port: DEFAULT_HTTPS_PORT,
         cert: SIGNAL_ROOT_CERTIFICATES,
         confirmation_header_name: None,
-        proxy: None
+        proxy: Some(ConnectionProxyConfig {
+            path_prefix: "/svr2-staging",
+            configs: [PROXY_CONFIG_F_STAGING, PROXY_CONFIG_G],
+        }),
     },
-    ip_v4: &[ip_addr!(v4, "94.130.65.123")],
+    ip_v4: &[ip_addr!(v4, "52.176.152.111")],
     ip_v6: &[],
 };
 
